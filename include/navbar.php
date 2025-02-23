@@ -1,10 +1,10 @@
 <!-- Navbar -->
-<nav class=" main-header navbar navbar-expand navbar-dark " style="background-color: #8a0410 !important;">
+<nav class=" main-header navbar navbar-expand navbar-dark " style="background-color:rgb(255, 255, 255) !important;">
 
     <!-- Left navbar links -->
     <ul class="navbar-nav">
         <li class="nav-item">
-            <a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a>
+            <a class="nav-link" style="background-color: #ff0004; border-radius: 5px;" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a>
         </li>
         <li class="nav-item d-none d-sm-inline-block">
             <a href="dashboard" class="nav-link"><strong style="font-size:22px;">Netaji Subhas University</strong></a>
@@ -40,7 +40,7 @@ $counts = $countResult->fetch_assoc();
     <ul class="navbar-nav ml-auto">
         <li class="nav-item dropdown">
             <a class="nav-link" data-toggle="dropdown" href="#">
-                <i class="fas fa-bell"></i>
+                <i class="fas fa-bell " style="color:#999c9e;"></i>
                 <span class="badge badge-primary navbar-badge"><?php echo count($notifications); ?></span>
             </a>
             <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
@@ -98,18 +98,18 @@ $counts = $countResult->fetch_assoc();
         <li class="nav-item" title="Change Password">
             <a href="javascript:void(0)" class="nav-link"
                 onclick="document.getElementById('changePasswordModal').style.display='block'">
-                <p><i class="fas fa-edit"></i></p>
+                <p><i class="fas fa-edit" style="color:#999c9e;"></i></p>
             </a>
         </li>
         <li class="nav-item dropdown">
             <a class="nav-link" data-toggle="dropdown" href="#">
-                <i class="far fa-user"></i>
+                <i class="far fa-user" style="color:#999c9e;"></i>
             </a>
             <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
                 <a href="" class="dropdown-item">
                     <!-- Message Start -->
                     <div class="media">
-                        <img src="images/logo.png" alt="User Avatar" class="img-size-50 mr-3 img-circle">
+                        <img src="img/logo.png" alt="User Avatar" class="img-size-50 mr-3 img-circle">
                         <div class="media-body">
                             <h3 class="dropdown-item-title">
                                 <?php 

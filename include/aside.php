@@ -1,24 +1,29 @@
+
 <!-- Main Sidebar Container -->
 <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
     integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous">
-<aside class="main-sidebar sidebar-dark-olive elevation-4" style="background-color: #8a0410 !important;">
-    <!-- Brand Logo -->
-    <!--<a href="dashboard" class="brand-link">-->
-    <!--    <img src="images/logo.png" alt="NSU Logo" class="brand-image img-circle elevation-3" style="opacity: .8">-->
-    <!--    <span class="brand-text font-weight-light" style="font-size: 18px;">Netaji Subhas University</span>-->
-    <!--</a>-->
+<aside class="main-sidebar sidebar-dark-olive elevation-4" style="background-color:rgb(255, 255, 255) !important;">
+<style>
+    .sidebar-dark-olive .nav-sidebar>.nav-item>.nav-link.active, .sidebar-light-olive .nav-sidebar>.nav-item>.nav-link.active {
+    background-color: #ff0004 !important;
+    color: #fff !important;
+    }
+    [class*=sidebar-dark-] .sidebar a {
+    color: black;
+}
 
-    <!-- Sidebar -->
+.nav-pills .nav-link:not(.active):hover {
+    color: #343a40 !important;
+}
+    
+</style> 
     <div class="sidebar">
         <!-- Sidebar user panel (optional) -->
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
             <div class="image">
-                <img src="<?= url('images/logo.png') ?>" class="" alt="User Image" style="width: 6.1rem !important;">
+                <img src="<?= url('img/logo.png') ?>" class="" alt="User Image" style="width: 100% !important;">
             </div>
-            <div class="info">
-                <a href="#" class="d-block" style="margin-top: 4px;font-weight: 900;">NETAJI<br />SUBHAS
-                    <br />UNIVERSITY</a>
-            </div>
+            
         </div>
 
         <!-- Sidebar Menu -->

@@ -12,81 +12,60 @@ if (isset($_SESSION["logger_type"]) && isset($_SESSION["logger_username"]) && is
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>NETAJI SUBHAS UNIVERSITY | Log in</title>
+    <title>ZEIT | Log in</title>
     <!-- Tell the browser to be responsive to screen width -->
-    <link rel="icon" href="images/logo.png" />
+    <link rel="icon" href="img/fav.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="apple-mobile-web-app-status-bar" content="#aa7700">
-    <meta name="theme-color" content="black">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
-    <!-- Ionicons -->
-    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-    <!-- icheck bootstrap -->
-    <link rel="stylesheet" href="plugins/icheck-bootstrap/icheck-bootstrap.min.css">
-    <!-- Theme style -->
-    <link rel="stylesheet" href="dist/css/adminlte.min.css">
-    <!-- Google Font: Source Sans Pro -->
-    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
-    <link rel="manifest" href="manifest.json">
 </head>
 
-<body class="hold-transition login-page" style="background-image: url('images/login.jpg');background-position: center;background-repeat: no-repeat;background-size: cover;">
+<body>
+    <div class="l-form">
+        <div class="shape1"></div>
+        <div class="shape2"></div>
 
-    <div class="login-box">
-        <div class="login-logo">
-            <a href="index"><img src="images/logo.png" style="width:50%" /></a>
-        </div>
-        <!-- /.login-logo -->
-        <div class="card">
-            <div class="card-body login-card-body">
-                <p class="login-box-msg">Sign in to start your session</p>
+        <div class="form">
+            <img src="https://i.postimg.cc/WbVD3VTV/authentication.png" alt="image" class="form-img">
 
-                <form id="admin_login_form" method="POST">
-                    <div id="error_section"></div>
-                    <div class="input-group mb-3">
-                        <input type="text" id="admin_login_username" name="admin_login_username" class="form-control" placeholder="Username">
-                        <div class="input-group-append">
-                            <div class="input-group-text">
-                                <span class="fas fa-user"></span>
-                            </div>
-                        </div>
+            <form id="admin_login_form" method="POST" class="form-content">
+            <div id="error_section"></div>
+                <img src="img/logo.png">
+            
+                <div class="form-div form-div-one">
+                    <div class="form-icon">
+                        <i class='bx bxs-user-circle'></i>
                     </div>
-                    <div class="input-group mb-3">
-                        <input type="password" id="admin_login_password" name="admin_login_password" class="form-control" placeholder="Password">
-                        <div class="input-group-append">
-                            <div class="input-group-text">
-                                <span class="fas fa-lock"></span>
-                            </div>
-                        </div>
+                    <div class="form-div-input">
+                        <label for="username" class="form-label">Username</label>
+                        <input type="text" id="admin_login_username" name="admin_login_username" class="form-input" required>
                     </div>
-                    <div class="row">
-                        <div class="col-8">
-                            <div class="icheck-primary">
-                                <input type="checkbox" id="remember">
-                                <label for="remember">
-                                    Remember Me
-                                </label>
-                            </div>
-                        </div>
-                        <!-- /.col -->
-                        <div class="col-4">
-                            <input type='hidden' name='action' value='admin_login' />
-                            <button type="submit" id="admin_login_button" name="admin_login_button" class="btn btn-primary btn-block">Sign In</button>
-                        </div>
-                        <div class="col-12" id="loader_section"></div>
-                        <!-- /.col -->
+                </div>
+            
+                <div class="form-div">
+                    <div class="form-icon">
+                        <i class='bx bx-lock'></i>
                     </div>
-                </form>
-
-                <!--<p class="mb-1">
-                    <a href="#">I forgot my password</a>
-                </p>-->
-            </div>
-            <!-- /.login-card-body -->
+                    <div class="form-div-input">
+                        <label for="password" class="form-label">Password</label>
+                        <input type="password" id="admin_login_password" name="admin_login_password" class="form-input" required>
+                    </div>
+                </div>
+            
+                <a href="#" class="form-forgot">Forgot Password?</a>
+                <input type='hidden' name='action' value='admin_login' />
+                <input type="submit" id="admin_login_button" name="admin_login_button" class="form-button">
+                <div class="col-12" id="loader_section"></div>
+               
+            </form>
+            
+           
+            
         </div>
     </div>
-    <!-- /.login-box -->
+
+    <script src="main.js"></script>
+</body>
 
     <!-- jQuery -->
     <script src="plugins/jquery/jquery.min.js"></script>
@@ -139,8 +118,241 @@ if (isset($_SESSION["logger_type"]) && isset($_SESSION["logger_username"]) && is
             }
         }
     </script>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+:root {
+    --first-color: #12192c;
+    --text-color: #8590ad;
+
+    --body-font: 'Roboto', sans-serif;
+    --big-font-size: 2rem;
+    --normal-font-size: .938rem;
+    --smaller-font-size: .875rem;
+}
+
+@media screen and (min-width: 768px) {
+    :root {
+        --big-font-size: 2.5rem;
+        --normal-font-size: 1rem;
+    }
+}
+
+*,::before,::after { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: var(--body-font);
+    color: var(--first-color);
+}
+
+h1 { margin: 0; }
+a { text-decoration: none; }
+img { max-width: 100%; height: auto; }
+
+.l-form {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.shape1, .shape2 {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+}
+
+    .shape1 { 
+        top: -7rem;
+        left: -3.5rem;
+        /* background: linear-gradient(180deg, var(--first-color) 0%, rgba(196, 196, 196, 0) 100%); */
+        background: linear-gradient(180deg, #fbbc05 0%, #ff0004 100%);
+        
+    }
+
+    .shape2 {
+        bottom: -6rem;
+        right: -5.5rem;
+        background: linear-gradient(180deg, #fbbc05 0%, #ff0004 100%);
+        transform: rotate(180deg);
+    }
+
+.form {
+    height: 100vh;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    padding: 0 1rem;
+}
+
+.form-content { width: 290px; }
+.form-img { display: none; }
+
+.form-title {
+    font-size: var(--big-font-size);
+    font-weight: 500;
+    margin-bottom: 2rem;
+}
+
+.form-div {
+    position: relative;
+    display: grid;
+    grid-template-columns: 7% 93%;
+    margin-bottom: 1rem;
+    padding: 0.25rem 0;
+    border-bottom: 1px solid var(--text-color);
+}
+
+    .form-div.focus { border-bottom: 1px solid var(--first-color); }
+
+.form-div-one { margin-bottom: 3rem; }
+.form-icon { 
+    font-size: 1.5rem; 
+    color: #ff0004;
+    transition: .3s; 
+}
+
+    .form-div.focus .form-icon { color: var(--first-color); }
+
+.form-label {
+    display: block;
+    position: absolute;
+    left: 0.75rem;
+    top: 0.25rem;
+    font-size: var(--normal-font-size);
+    color: var(--text-color);
+    transition: .3s;
+}
+
+    .form-div.focus .form-label {
+        top: -1.5rem;
+        font-size: .875rem;
+        color: var(--first-color);
+    }
+
+.form-div-input { position: relative; }
+
+.form-input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+    outline: none;
+    background: none;
+    padding: 0.5rem .75rem;
+    font-size: 1.2rem;
+    color: var(--first-color);
+    transition: .3s;
+}
+
+.form-forgot {
+    display: block;
+    text-align: right;
+    margin-bottom: 2rem;
+    font-size: var(--normal-font-size);
+    color: #ff0004;
+    font-weight: 500;
+    transition: .5s;
+}
+
+    .form-forgot:hover { color: var(--first-color); }
+
+.form-button {
+    width: 100%;
+    padding: 1rem;
+    font-size: var(--normal-font-size);
+    outline: none;
+    border: none;
+    margin-bottom: 3rem;
+    background-color: #ff0004;
+    color: #fff;
+    border-radius: .5rem;
+    cursor: pointer;
+    transition: .3s;
+}
+
+    .form-button:hover { box-shadow: 0px 15px 36px rgba(0, 0, 0, .15); }
+
+.form-social { text-align: center; }
+
+.form-social-text {
+    display: block;
+    font-size: var(--normal-font-size);
+    margin-bottom: 1rem;
+}
+
+.form-social-icon {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    margin-right: 1rem;
+    padding: 0.5rem;
+    background-color: #ff0004;
+    color: #fff;
+    font-size: 1.25rem;
+    border-radius: 50%;
+    transition: .5s;
+}
+
+    .form-social-icon:hover { background-color: var(--first-color); }
+
+@media screen and (min-width: 968px) {
+    .shape1 { 
+        width: 400px;
+        height: 400px;
+        top: -11rem;
+        left: -6.5rem;
+    }
+
+    .shape2 {
+        width: 300px;
+        height: 300px;
+        right: -6.5rem;
+    }
+
+    .form {
+        grid-template-columns: 1.5fr 1fr;
+        padding: 0 2rem;
+    }
+
+    .form-content { width: 320px; }
+    .form-img { 
+        display: block;
+        width: 700px;
+        justify-self: center; 
+    }
+}
+</style>
+
+<script>
+    const inputs = document.querySelectorAll(".form-input");
+
+function addfocus() {
+    let parent = this.parentNode.parentNode;
+    parent.classList.add("focus");
+}
+
+function remfocus() {
+    let parent = this.parentNode.parentNode;
+    if(this.value == ""){
+        parent.classList.remove("focus");
+    }
+}
+
+inputs.forEach(input => {
+    input.addEventListener("focus", addfocus);
+    input.addEventListener("blur", remfocus)
+});
+</script>
+
+
     <script src="serviceworker.js"></script>
 
-</body>
 
 </html>

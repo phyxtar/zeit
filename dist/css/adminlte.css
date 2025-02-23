@@ -12056,13 +12056,13 @@ body.sidebar-collapse:not(.sidebar-mini-md):not(.sidebar-mini) .main-header::bef
 
 .sidebar-dark-olive .nav-sidebar > .nav-item > .nav-link.active,
 .sidebar-light-olive .nav-sidebar > .nav-item > .nav-link.active {
-  background-color: #3d9970;
+  background-color: #ff0004;
   color: #ffffff;
 }
 
 .sidebar-dark-olive .nav-sidebar.nav-legacy > .nav-item > .nav-link.active,
 .sidebar-light-olive .nav-sidebar.nav-legacy > .nav-item > .nav-link.active {
-  border-color: #3d9970;
+  border-color: #ff0004;
 }
 
 .sidebar-dark-lime .nav-sidebar > .nav-item > .nav-link.active,
