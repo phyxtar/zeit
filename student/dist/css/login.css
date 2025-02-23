@@ -1,0 +1,16 @@
+body {
+    background: url('images/cms.png') fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 0;
+    margin: 0;
+}
+
+.form-sections {
+    border-radius: 90px 4px;
+
+    margin: 94px auto;
+    background: #e3b020;
+    padding: 18px 20px;
+    box-shadow: 5px 5px 14px #c70013;
+}

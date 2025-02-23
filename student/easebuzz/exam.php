@@ -1,0 +1,123 @@
+<?php
+// include file
+
+include_once ('easebuzz-lib/easebuzz_payment_gateway.php');
+session_start();
+
+include_once "../../framwork/main.php";
+include_once "../../include/function.php";
+
+if (!empty($_POST) && (sizeof($_POST) > 0)) {
+    $apiname = trim(htmlentities($_GET['api_name'], ENT_QUOTES));
+    $MERCHANT_KEY = "VNQSM82SAE";
+    $SALT = "LNRNU85EPI";
+    $ENV = "prod";   // setup production enviroment (pay.easebuzz.in).
+
+    $easebuzzObj = new Easebuzz($MERCHANT_KEY, $SALT, $ENV);
+    $transation_id = $_SESSION['txn_no'];
+    if ($_SERVER['HTTP_HOST'] == "localhost") {
+        $amount = "0.01";
+        $furl = "http://localhost/nsucms1/student/exam_success";
+        $surl = $furl;
+    } else {
+        $amount = $_SESSION['amount'] . ".00";
+        $furl = "https://nsucms.in/nsucms/student/exam_success";
+        $surl = $furl;
+    }
+
+    $firstname = $_SESSION['exam']['candidate_name'];
+    $email = $_SESSION['exam']['email_id'];
+    $phone_no = $_SESSION['exam']['mobile_no1'];
+
+    $admission_id = $_SESSION['exam']['admission_id'];
+    $semester_id = $_SESSION['exam']['semester_id'];
+    $course_name_in_string = get_course($_SESSION['user']['admission_course_name']);
+    $session_name_in_string = get_session($_SESSION['user']['admission_session']);
+
+
+
+    if ($apiname === "initiate_payment") {
+        $postData = array(
+            "txnid" => "$transation_id",
+            "amount" => "$amount",
+            "firstname" => "$firstname",
+            "email" => "$email",
+            "phone" => "$phone_no",
+            "productinfo" => "$admission_id",
+            "surl" => "$furl",
+            "furl" => "$surl",
+            "udf1" => "$admission_id",
+            "udf2" => "$semester_id",
+            "udf3" => "",
+            "udf4" => "$course_name_in_string",
+            "udf5" => "$session_name_in_string",
+            "udf6" => "Exam_Form_fee",
+            "address1" => "aaaa",
+            "address2" => "aaaa",
+            "city" => "aaaa",
+            "state" => "aaaa",
+            "country" => "aaaa",
+            "zipcode" => "123123"
+        );
+
+        $easebuzzObj->initiatePaymentAPI($postData);
+    } else if ($apiname === "transaction") {
+
+        /*  Very Important Notes
+            * 
+            * Post Data should be below format.
+            *
+                Array ( [txnid] => TZIF0SS24C [amount] => 1.03 [email] => test@gmail.com [phone] => 1231231235 )
+            */
+        $result = $easebuzzObj->transactionAPI($postData);
+
+        easebuzzAPIResponse($result);
+    } else if ($apiname === "transaction_date" || $apiname === "transaction_date_api") {
+
+        /*  Very Important Notes
+            * 
+            * Post Data should be below format.
+            *
+                Array ( [merchant_email] => jitendra@gmail.com [transaction_date] => 06-06-2018 )
+            */
+        $result = $easebuzzObj->transactionDateAPI($postData);
+
+        easebuzzAPIResponse($result);
+    } else if ($apiname === "refund") {
+
+        /*  Very Important Notes
+            * 
+            * Post Data should be below format.
+            *
+                Array ( [txnid] => ASD20088 [refund_amount] => 1.03 [phone] => 1231231235 [email] => test@gmail.com [amount] => 1.03 )
+            */
+        $result = $easebuzzObj->refundAPI($postData);
+
+        easebuzzAPIResponse($result);
+    } else if ($apiname === "payout") {
+
+        /*  Very Important Notes
+            * 
+            * Post Data should be below format.
+            *
+               Array ( [merchant_email] => jitendra@gmail.com [payout_date] => 08-06-2018 )
+            */
+        $result = $easebuzzObj->payoutAPI($postData);
+
+        easebuzzAPIResponse($result);
+    } else {
+
+        echo '<h1>You called wrong API, Pleae try again</h1>';
+    }
+} else {
+    echo '<h1>Please fill all mandatory fields.</h1>';
+}
+
+
+/*
+ *  Show All API Response except initiate Payment API
+ */
+function easebuzzAPIResponse($data)
+{
+    print_r($data);
+}

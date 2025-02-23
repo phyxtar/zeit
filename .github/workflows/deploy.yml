@@ -1,0 +1,45 @@
+name: Deploy to EC2
+
+on:
+  push:
+    branches:
+      - rollback  # Trigger the deployment from the `rollback` branch (or whichever branch you want)
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code from GitHub
+        uses: actions/checkout@v2
+
+      - name: Set up SSH
+        run: |
+          # Install SSH client
+          sudo apt-get update && sudo apt-get install -y openssh-client
+
+          # Add EC2 host to known hosts to avoid SSH verification prompt
+          mkdir -p ~/.ssh
+          ssh-keyscan -H ${{ secrets.EC2_HOST }} >> ~/.ssh/known_hosts
+
+      - name: Pull the latest changes from rollback branch on EC2
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.EC2_HOST }}
+          username: ${{ secrets.EC2_USER }}
+          key: ${{ secrets.EC2_PRIVATE_KEY }}
+          port: ${{ secrets.EC2_PORT }}
+          script: |
+            # Navigate to the project directory
+            cd /var/www/html/nsucms
+
+            # Pull the latest changes from the rollback branch
+            sudo git pull origin rollback
+
+            # Optionally: Install Composer dependencies if using Composer
+            if [ -f "composer.json" ]; then
+              composer install --no-dev --optimize-autoloader
+            fi
+
+            # Restart Apache to apply the changes
+            sudo systemctl restart apache2

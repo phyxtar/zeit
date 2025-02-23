@@ -1,0 +1,17 @@
+{
+    "name": "manth/nsucms-aws-latest",
+    "autoload": {
+        "psr-4": {
+            "Manth\\NsucmsAwsLatest\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "INFINITE NET SOLUTIONS",
+            "email": "77320132+infinitenetsolutions@users.noreply.github.com"
+        }
+    ],
+    "require": {
+        "phpoffice/phpspreadsheet": "^1.29"
+    }
+}
