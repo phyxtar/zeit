@@ -6,6 +6,9 @@ if ($_POST["action"] == "add_admin") {
     $admin_username = $_POST["admin_username"];
     $admin_password = md5($_POST["admin_password"]);
     $admin_email = $_POST["admin_email"];
+    $department = $_POST["department"];
+    $join_date = $_POST["join_date"];
+    $user_id = $_POST["user_id"];
     $admin_mobile = $_POST["admin_mobile"];
     $hod_permission = isset($_POST["hod_permission"]) ? $_POST["hod_permission"] : [];
     $admin_type = $_POST["admin_type"];
@@ -120,9 +123,9 @@ if ($_POST["action"] == "add_admin") {
         );
         $hod_permissions_json = json_encode($hod_permission);
         $sql = "INSERT INTO `tbl_admin`
-                        (`admin_id`, `admin_name`, `admin_username`, `admin_password`, `admin_email`, `admin_mobile`, `admin_type`, `admin_permission`,`hod_permission`, `status`) 
+                        (`admin_id`, `admin_name`, `admin_username`, `admin_password`, `admin_email`, `admin_mobile`, `admin_type`, `admin_permission`,`hod_permission`, `status`,department,join_date,user_id) 
                         VALUES 
-                        (NULL,'$admin_name','$admin_username','$admin_password','$admin_email','$admin_mobile','$admin_type','" . json_encode($allPermissions) . "','$hod_permissions_json','$visible')
+                        (NULL,'$admin_name','$admin_username','$admin_password','$admin_email','$admin_mobile','$admin_type','" . json_encode($allPermissions) . "','$hod_permissions_json','$visible','$department','$join_date','$user_id')
                         ";
 
         if ($con->query($sql)) {

@@ -1,4 +1,4 @@
  <footer class="main-footer">
 
-    <strong><p>&copy; <?php echo date("Y"); ?> NSU All Right Reserved. Powered By  <a href="http://infinitenetsolutions.com/" target="_blank">Infinite Net Solutions</a></p>
+    <strong><p>&copy; <?php echo date("Y"); ?> ZEIT All Right Reserved.</p>
   </footer>

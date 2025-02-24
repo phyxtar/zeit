@@ -109,7 +109,7 @@
                                                         echo "style='display:none;';";
                                                     }
                                                 } ?>>
-                            <a href="<?= url('leave_application.php') ?>" class="nav-link <?php if ($page_no_inside == "2_2") {
+                            <a href="<?= url('audit_log.php') ?>" class="nav-link <?php if ($page_no_inside == "2_2") {
                                                                                                 echo 'active';
                                                                                             } ?>">
                                 <i class="far fa-circle nav-icon"></i>

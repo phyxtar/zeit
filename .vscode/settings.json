@@ -1,4 +1,5 @@
 {
     "editor.inlineSuggest.showToolbar": "always",
-    "php.version": "7.3"
+    "php.version": "7.3",
+    "bitoAI.codeCompletion.enableAutoCompletion": false
 }

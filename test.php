@@ -69,9 +69,9 @@
                     <a href="#"><i class="fa fa-users"></i> <span class="nav-label">Customer</span> <span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         <li><a href="customer-list.html">Customer List</a></li>
-              
+                       
                         <li><a href="support-tickets.html">Support Tickets</a></li>
-                      
+                       
                     </ul>
                 </li>
             
@@ -224,7 +224,7 @@
                         </li>
                         
                         <li class="breadcrumb-item active">
-                            <strong>Leave</strong>
+                            <strong>Manage User</strong>
                         </li>
                     </ol>
                 </div>
@@ -235,168 +235,202 @@
         <div class="wrapper wrapper-content animated fadeInRight">
             <div class="row">
                 <div class="col-lg-12">
-                    <div class="row">
-                        <!-- Leave Summary Cards -->
-                        <div class="col-lg-3">
-                            <div class="ibox">
-                                <div class="ibox-content text-center" style="background-color: #1ab394; color: white;">
-                                    <h1 class="no-margins">12</h1>
-                                    <h3>Pending Requests</h3>
+                    <div class="ibox">
+                        <div class="ibox-title">
+                            <h5>Audit Logs</h5>
+                            <div class="ibox-tools">
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-white btn-sm dropdown-toggle" data-toggle="dropdown">
+                                        Export <span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="#"><i class="fa fa-file-excel-o"></i> Excel</a></li>
+                                        <li><a class="dropdown-item" href="#"><i class="fa fa-file-pdf-o"></i> PDF</a></li>
+                                        <li><a class="dropdown-item" href="#"><i class="fa fa-file-text-o"></i> CSV</a></li>
+                                    </ul>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-3">
-                            <div class="ibox">
-                                <div class="ibox-content text-center" style="background-color: #23c6c8; color: white;">
-                                    <h1 class="no-margins">45</h1>
-                                    <h3>Approved Leaves</h3>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3">
-                            <div class="ibox">
-                                <div class="ibox-content text-center" style="background-color: #ed5565; color: white;">
-                                    <h1 class="no-margins">8</h1>
-                                    <h3>Rejected Leaves</h3>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3">
-                            <div class="ibox">
-                                <div class="ibox-content text-center" style="background-color: #f8ac59; color: white;">
-                                    <h1 class="no-margins">15</h1>
-                                    <h3>Leave Balance</h3>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-lg-8">
-                            <div class="ibox">
-                                <div class="ibox-title">
-                                    <h5>Leave Requests</h5>
-                                    <div class="ibox-tools">
-                                        <button class="btn btn-primary btn-xs" data-toggle="modal" data-target="#newLeaveModal">
-                                            <i class="fa fa-plus"></i> New Leave Request
-                                        </button>
-                                        <div class="btn-group">
-                                            <button class="btn btn-white btn-xs">Export</button>
-                                            <button class="btn btn-white btn-xs">Print</button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="ibox-content">
-                                    <div class="row m-b-sm">
-                                        <div class="col-md-3">
-                                            <select class="form-control">
-                                                <option>All Status</option>
-                                                <option>Pending</option>
-                                                <option>Approved</option>
-                                                <option>Rejected</option>
-                                            </select>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <select class="form-control">
-                                                <option>All Types</option>
-                                                <option>Vacation</option>
-                                                <option>Sick Leave</option>
-                                                <option>Personal Leave</option>
-                                            </select>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <div class="input-group">
-                                                <input type="text" placeholder="Search..." class="form-control">
-                                                <span class="input-group-append">
-                                                    <button type="button" class="btn btn-primary">Search</button>
-                                                </span>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="table-responsive">
-                                        <table class="table table-hover">
-                                            <thead>
-                                                <tr>
-                                                    <th>Employee</th>
-                                                    <th>Leave Type</th>
-                                                    <th>From</th>
-                                                    <th>To</th>
-                                                    <th>Days</th>
-                                                    <th>Reason</th>
-                                                    <th>Status</th>
-                                                    <th>Actions</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <td><img src="img/a2.jpg" class="rounded-circle" style="width:30px"> John Smith</td>
-                                                    <td><span class="label label-info">Sick Leave</span></td>
-                                                    <td>2023-10-15</td>
-                                                    <td>2023-10-17</td>
-                                                    <td>3</td>
-                                                    <td>Medical appointment</td>
-                                                    <td><span class="badge badge-warning">Pending</span></td>
-                                                    <td>
-                                                        <div class="btn-group">
-                                                            <button class="btn btn-xs btn-primary" data-toggle="tooltip" title="Approve"><i class="fa fa-check"></i></button>
-                                                            <button class="btn btn-xs btn-danger" data-toggle="tooltip" title="Reject"><i class="fa fa-times"></i></button>
-                                                            <button class="btn btn-xs btn-info" data-toggle="tooltip" title="View Details"><i class="fa fa-eye"></i></button>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td><img src="img/a4.jpg" class="rounded-circle" style="width:30px"> Sarah Johnson</td>
-                                                    <td><span class="label label-primary">Vacation</span></td>
-                                                    <td>2023-11-01</td>
-                                                    <td>2023-11-05</td>
-                                                    <td>5</td>
-                                                    <td>Family vacation</td>
-                                                    <td><span class="badge badge-warning">Pending</span></td>
-                                                    <td>
-                                                        <div class="btn-group">
-                                                            <button class="btn btn-xs btn-primary" data-toggle="tooltip" title="Approve"><i class="fa fa-check"></i></button>
-                                                            <button class="btn btn-xs btn-danger" data-toggle="tooltip" title="Reject"><i class="fa fa-times"></i></button>
-                                                            <button class="btn btn-xs btn-info" data-toggle="tooltip" title="View Details"><i class="fa fa-eye"></i></button>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-4">
-                            <div class="ibox">
-                                <div class="ibox-title">
-                                    <h5>Leave Calendar</h5>
-                                </div>
-                                <div class="ibox-content">
-                                    <div id="calendar"></div>
-                                </div>
-                            </div>
-
-                            <div class="ibox">
-                                <div class="ibox-title">
-                                    <h5>Leave Statistics</h5>
-                                </div>
-                                <div class="ibox-content">
-                                    <div class="m-t-sm">
+                        <div class="ibox-content">
+                            <!-- Summary Stats -->
+                            <div class="row mb-4">
+                                <div class="col-md-3">
+                                    <div class="widget style1 navy-bg">
                                         <div class="row">
-                                            <div class="col-md-6">
-                                                <small class="stats-label">Vacation Days Used</small>
-                                                <h4>12 / 20</h4>
+                                            <div class="col-4">
+                                                <i class="fa fa-database fa-3x"></i>
                                             </div>
-                                            <div class="col-md-6">
-                                                <small class="stats-label">Sick Leave Used</small>
-                                                <h4>3 / 10</h4>
+                                            <div class="col-8 text-right">
+                                                <span>Total Logs</span>
+                                                <h2 class="font-bold">2,342</h2>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="progress progress-small">
-                                        <div style="width: 60%;" class="progress-bar"></div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="widget style1 lazur-bg">
+                                        <div class="row">
+                                            <div class="col-4">
+                                                <i class="fa fa-user fa-3x"></i>
+                                            </div>
+                                            <div class="col-8 text-right">
+                                                <span>Unique Users</span>
+                                                <h2 class="font-bold">147</h2>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="widget style1 yellow-bg">
+                                        <div class="row">
+                                            <div class="col-4">
+                                                <i class="fa fa-warning fa-3x"></i>
+                                            </div>
+                                            <div class="col-8 text-right">
+                                                <span>Failed Actions</span>
+                                                <h2 class="font-bold">23</h2>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="widget style1 red-bg">
+                                        <div class="row">
+                                            <div class="col-4">
+                                                <i class="fa fa-shield fa-3x"></i>
+                                            </div>
+                                            <div class="col-8 text-right">
+                                                <span>Security Events</span>
+                                                <h2 class="font-bold">45</h2>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row m-b-sm">
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>Event Type</label>
+                                        <select class="form-control">
+                                            <option>All Events</option>
+                                            <option>Login</option>
+                                            <option>Logout</option>
+                                            <option>Create</option>
+                                            <option>Update</option>
+                                            <option>Delete</option>
+                                            <option>Password Change</option>
+                                            <option>Permission Change</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>User</label>
+                                        <select class="form-control">
+                                            <option>All Users</option>
+                                            <option>Admin Users</option>
+                                            <option>Regular Users</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>Date Range</label>
+                                        <div class="input-daterange input-group">
+                                            <input type="date" class="form-control" name="start">
+                                            <span class="input-group-addon">to</span>
+                                            <input type="date" class="form-control" name="end">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <label>&nbsp;</label>
+                                        <button class="btn btn-primary btn-block">Search Logs</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="table-responsive">
+                                <table class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>Timestamp</th>
+                                            <th>Event Type</th>
+                                            <th>User</th>
+                                            <th>IP Address</th>
+                                            <th>Module</th>
+                                            <th>Action</th>
+                                            <th>Details</th>
+                                            <th>Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>2023-06-15 14:30:25</td>
+                                            <td><span class="label label-primary">Login</span></td>
+                                            <td>admin@example.com</td>
+                                            <td>192.168.1.100</td>
+                                            <td>Authentication</td>
+                                            <td>User Login</td>
+                                            <td>Successful login attempt</td>
+                                            <td><span class="label label-success">Success</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>2023-06-15 14:25:12</td>
+                                            <td><span class="label label-warning">Update</span></td>
+                                            <td>john.doe@example.com</td>
+                                            <td>192.168.1.101</td>
+                                            <td>User Management</td>
+                                            <td>Profile Update</td>
+                                            <td>Updated user profile information</td>
+                                            <td><span class="label label-success">Success</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>2023-06-15 14:20:45</td>
+                                            <td><span class="label label-danger">Delete</span></td>
+                                            <td>admin@example.com</td>
+                                            <td>192.168.1.100</td>
+                                            <td>Document Management</td>
+                                            <td>Delete File</td>
+                                            <td>Deleted file: report.pdf</td>
+                                            <td><span class="label label-success">Success</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>2023-06-15 14:15:30</td>
+                                            <td><span class="label label-info">Create</span></td>
+                                            <td>jane.smith@example.com</td>
+                                            <td>192.168.1.102</td>
+                                            <td>Project Management</td>
+                                            <td>Create Project</td>
+                                            <td>Created new project: Website Redesign</td>
+                                            <td><span class="label label-success">Success</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>2023-06-15 14:10:15</td>
+                                            <td><span class="label label-danger">Failed Login</span></td>
+                                            <td>unknown@example.com</td>
+                                            <td>192.168.1.103</td>
+                                            <td>Authentication</td>
+                                            <td>Login Attempt</td>
+                                            <td>Failed login attempt - Invalid credentials</td>
+                                            <td><span class="label label-danger">Failed</span></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="text-right">
+                                        <ul class="pagination">
+                                            <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                                            <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                            <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                                        </ul>
                                     </div>
                                 </div>
                             </div>
@@ -407,7 +441,7 @@
         </div>
         <div class="footer">
             <div class="float-right">
-                           </div>
+            </div>
             <div>
                 <strong>Copyright</strong> Zeit &copy; Reserved 2025
             </div>

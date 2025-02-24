@@ -19,7 +19,7 @@ if (isset($_GET['year']) && $_GET['year'] != '') {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>ZEIT | Dashboard</title>
     <!-- Fav Icon -->
-    <link rel="icon" href="images/logo.png" />
+    <link rel="icon" type="image/x-icon" href="img/fav.png">
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Font Awesome -->

@@ -10,15 +10,17 @@ if ($_GET["action"] == "get_admin") {
     ?>
 
 
-<table id="example1" class="table table-bordered table-striped">
+<table id="example1" class="table table-striped">
     <thead>
         <tr>
-            <th>S.No</th>
+            <th>User ID</th>
             <th>Name</th>
-            <th>Username</th>
-            <th>Email ID</th>
-            <th>Contact</th>
+            <th>Email</th>
             <th>User Type</th>
+            <th>Department</th>
+            <th>Join Date</th>
+            <th>Last Login</th>
+            <th>Status</th>
             <th class="project-actions text-center">Action </th>
         </tr>
     </thead>
@@ -34,45 +36,86 @@ if ($_GET["action"] == "get_admin") {
                     ?>
         <tr>
             <td>
-                <?php echo $s_no; ?>
+                <?php echo $row["user_id"]; ?>
             </td>
             <td>
                 <?php echo $row["admin_name"]; ?>
             </td>
             <td>
-                <?php echo $row["admin_username"]; ?>
-            </td>
-            <td>
                 <?php echo $row["admin_email"]; ?>
             </td>
             <td>
-                <?php echo $row["admin_mobile"]; ?>
+    <?php
+    $badgeColor = '#000'; // Default color (black)
+    
+    if (isset($row["admin_type"])) {
+        switch ($row["admin_type"]) {
+            case 'superadmin': // If stored as 'superadmin'
+                $badgeColor = '#FF0004'; // Red
+                break;
+            case 'employee': 
+                $badgeColor = '#23c6c8'; // Teal
+                break;
+            case 'customer':
+                $badgeColor = '#f8ac59'; // Orange
+                break;
+            default:
+                $badgeColor = '#000000'; // Black for unknown types
+        }
+    }
+    ?>
+    <span class="badge" style="background-color: <?php echo htmlspecialchars($badgeColor); ?>; color: white;">
+        <?php echo htmlspecialchars($row["admin_type"] ?? 'Unknown'); ?>
+    </span>
+</td>
+
+            <td>
+                <?php echo $row["department"]; ?>
             </td>
             <td>
-                <?php echo $row["admin_type"]; ?>
+                <?php echo $row["join_date"]; ?>
+            </td>
+            <td>
+                <?php echo $row["last_login"]; ?>
+            </td>
+            <td>
+                <?php 
+                if($row["status"] == "46cf0e59759c9b7f1112ca4b174343ef") {
+                    echo '<span class="badge badge-primary">Active</span>';
+                } else {
+                    echo '<span class="badge badge-danger">Inactive</span>';
+                }
+                ?>
             </td>
             <td class="project-actions text-center">
                 <?php
                 $permissions = json_decode($_SESSION["authority"], true); 
                 $loggedInUserType = $_SESSION['logger_type']; 
 
+                // View button
+                if ((isset($permissions['2']) && in_array('2_3', explode('||', $permissions['2']))) || $loggedInUserType == 'admin') {
+                    ?>
+                    <button onclick="viewForm('<?= url('pages/admin/view-details') ?>', <?= $row['admin_id'] ?>, 'view_form')"
+                        type="button" style="background-color: #23c6c8; color:white;" class="btn btn-sm" data-toggle="modal" data-target="#viewModal">
+                        <i class="fas fa-eye"></i>
+                    </button>
+                    <?php
+                }
+
+                // Edit button
                 if ((isset($permissions['2']) && in_array('2_4', explode('||', $permissions['2']))) || $loggedInUserType == 'admin') {
                     ?>
                     <button onclick="editForm('<?= url('pages/admin/edit') ?>', <?= $row['admin_id'] ?>, 'edit_form')"
-                        type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#exampleModalCenter">
+                        type="button" style="background-color: #f8ac59; color:white;" class="btn btn-sm" data-toggle="modal" data-target="#exampleModalCenter">
                         <i class="fas fa-edit"></i>
                     </button>
                     <?php
                 }
-                ?>
 
-            <?php
-                $permissions = json_decode($_SESSION["authority"], true); 
-                $loggedInUserType = $_SESSION['logger_type']; 
-
+                // Delete button 
                 if ((isset($permissions['2']) && in_array('2_5', explode('||', $permissions['2']))) || $loggedInUserType == 'admin') {
                     ?>
-                    <button id="success<?= $s_no ?>" class="btn btn-danger btn-sm"
+                    <button style="background-color: #FF0004; color:white;" id="success<?= $s_no ?>" class="btn btn-sm"
                         onclick="deleteForm('<?= url('pages/admin/delete') ?>', '<?= $row['admin_id'] ?>', 'success<?= $s_no ?>')">
                         <i class="fas fa-trash"></i>
                     </button>
@@ -94,6 +137,14 @@ if ($_GET["action"] == "get_admin") {
             ?>
     </tbody>
 </table>
+<style>
+    .page-item.active .page-link {
+    z-index: 1;
+    color: #fff;
+    background-color: #ff0004 !important;
+    border-color: #ff0004 !important;
+}
+</style>
 <script>
 $(function() {
     $("#example1").DataTable();
