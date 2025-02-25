@@ -69,9 +69,8 @@
                     <a href="#"><i class="fa fa-users"></i> <span class="nav-label">Customer</span> <span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         <li><a href="customer-list.html">Customer List</a></li>
-              
                         <li><a href="support-tickets.html">Support Tickets</a></li>
-                      
+                       
                     </ul>
                 </li>
             
@@ -224,7 +223,7 @@
                         </li>
                         
                         <li class="breadcrumb-item active">
-                            <strong>Manage User</strong>
+                            <strong>Payroll</strong>
                         </li>
                     </ol>
                 </div>
@@ -237,271 +236,122 @@
                 <div class="col-lg-12">
                     <div class="ibox">
                         <div class="ibox-title">
-                            <h5>Manage Subscriptions</h5>
+                            <h5>Customer List</h5>
                             <div class="ibox-tools">
-                                <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#addSubscriptionModal">
-                                    <i class="fa fa-plus"></i> Add Subscription
+                                <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#addCustomerModal">
+                                    <i class="fa fa-plus"></i> Add New Customer
                                 </button>
                                 <div class="btn-group">
                                     <button type="button" class="btn btn-white btn-sm dropdown-toggle" data-toggle="dropdown">
                                         Export <span class="caret"></span>
                                     </button>
                                     <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="#"><i class="fa fa-file-excel-o"></i> Excel</a></li>
-                                        <li><a class="dropdown-item" href="#"><i class="fa fa-file-pdf-o"></i> PDF</a></li>
-                                        <li><a class="dropdown-item" href="#"><i class="fa fa-file-text-o"></i> CSV</a></li>
+                                        <li><a class="dropdown-item" href="#"><i class="fa fa-file-pdf-o"></i> Export as PDF</a></li>
+                                        <li><a class="dropdown-item" href="#"><i class="fa fa-print"></i> Print List</a></li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
                         <div class="ibox-content">
-                            <!-- Summary Stats -->
-                            <div class="row mb-4">
-                                <div class="col-md-3">
-                                    <div class="widget style1 navy-bg">
-                                        <div class="row">
-                                            <div class="col-4">
-                                                <i class="fa fa-users fa-3x"></i>
-                                            </div>
-                                            <div class="col-8 text-right">
-                                                <span>Total Subscribers</span>
-                                                <h2 class="font-bold">856</h2>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-3">
-                                    <div class="widget style1 lazur-bg">
-                                        <div class="row">
-                                            <div class="col-4">
-                                                <i class="fa fa-credit-card fa-3x"></i>
-                                            </div>
-                                            <div class="col-8 text-right">
-                                                <span>Monthly Revenue</span>
-                                                <h2 class="font-bold">$12,450</h2>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-3">
-                                    <div class="widget style1 yellow-bg">
-                                        <div class="row">
-                                            <div class="col-4">
-                                                <i class="fa fa-refresh fa-3x"></i>
-                                            </div>
-                                            <div class="col-8 text-right">
-                                                <span>Renewals Due</span>
-                                                <h2 class="font-bold">28</h2>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-3">
-                                    <div class="widget style1 red-bg">
-                                        <div class="row">
-                                            <div class="col-4">
-                                                <i class="fa fa-times-circle fa-3x"></i>
-                                            </div>
-                                            <div class="col-8 text-right">
-                                                <span>Expired</span>
-                                                <h2 class="font-bold">15</h2>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="row m-b-sm">
-                                <div class="col-md-3">
-                                    <div class="form-group">
-                                        <label>Plan Type</label>
-                                        <select class="form-control">
-                                            <option>All Plans</option>
-                                            <option>Basic</option>
-                                            <option>Premium</option>
-                                            <option>Enterprise</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-md-3">
-                                    <div class="form-group">
-                                        <label>Status</label>
-                                        <select class="form-control">
-                                            <option>All Status</option>
-                                            <option>Active</option>
-                                            <option>Pending</option>
-                                            <option>Expired</option>
-                                            <option>Cancelled</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label>Date Range</label>
-                                        <div class="input-daterange input-group">
-                                            <input type="date" class="form-control" name="start">
-                                            <span class="input-group-addon">to</span>
-                                            <input type="date" class="form-control" name="end">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-2">
-                                    <div class="form-group">
-                                        <label>&nbsp;</label>
-                                        <button class="btn btn-primary btn-block">Search</button>
-                                    </div>
-                                </div>
-                            </div>
-
                             <div class="table-responsive">
-                                <table class="table table-striped">
+                                <table class="table table-hover">
                                     <thead>
                                         <tr>
-                                            <th>Subscriber</th>
-                                            <th>Plan</th>
-                                            <th>Start Date</th>
-                                            <th>End Date</th>
-                                            <th>Amount</th>
+                                            <th>Customer ID</th>
+                                            <th>Company Name</th>
+                                            <th>Contact Person</th>
+                                            <th>Email</th>
+                                            <th>Phone</th>
+                                            <th>Service Tenure</th>
+                                            <th>Subscription Type</th>
                                             <th>Status</th>
-                                            <th>Auto Renew</th>
                                             <th>Actions</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
+                                            <td>CUST001</td>
+                                            <td>Acme Corp</td>
                                             <td>John Smith</td>
-                                            <td>Premium</td>
-                                            <td>2023-01-15</td>
-                                            <td>2024-01-14</td>
-                                            <td>$99/month</td>
-                                            <td><span class="label label-primary">Active</span></td>
-                                            <td><span class="label label-success">Yes</span></td>
+                                            <td>john@acmecorp.com</td>
+                                            <td>+1 234-567-8900</td>
+                                            <td>2 years</td>
+                                            <td><span class="badge badge-info">Enterprise</span></td>
+                                            <td><span class="badge badge-primary">Active</span></td>
                                             <td>
-                                                <div class="btn-group">
-                                                    <button class="btn-white btn btn-xs">Edit</button>
-                                                    <button class="btn-white btn btn-xs">Cancel</button>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Sarah Johnson</td>
-                                            <td>Basic</td>
-                                            <td>2023-03-20</td>
-                                            <td>2024-03-19</td>
-                                            <td>$29/month</td>
-                                            <td><span class="label label-primary">Active</span></td>
-                                            <td><span class="label label-success">Yes</span></td>
-                                            <td>
-                                                <div class="btn-group">
-                                                    <button class="btn-white btn btn-xs">Edit</button>
-                                                    <button class="btn-white btn btn-xs">Cancel</button>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Michael Brown</td>
-                                            <td>Enterprise</td>
-                                            <td>2023-05-01</td>
-                                            <td>2023-06-15</td>
-                                            <td>$299/month</td>
-                                            <td><span class="label label-danger">Expired</span></td>
-                                            <td><span class="label label-danger">No</span></td>
-                                            <td>
-                                                <div class="btn-group">
-                                                    <button class="btn-white btn btn-xs">Renew</button>
-                                                    <button class="btn-white btn btn-xs">Delete</button>
-                                                </div>
+                                                <button class="btn btn-white btn-sm" data-toggle="collapse" data-target="#customerDetails">
+                                                    <i class="fa fa-eye"></i> View Details
+                                                </button>
                                             </td>
                                         </tr>
                                     </tbody>
                                 </table>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-sm-12">
-                                    <div class="text-right">
-                                        <ul class="pagination">
-                                            <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-                                            <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                                            <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                            <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                            <li class="page-item"><a class="page-link" href="#">Next</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Add Subscription Modal -->
-            <div class="modal inmodal" id="addSubscriptionModal" tabindex="-1" role="dialog" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content animated bounceInRight">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
-                            <h4 class="modal-title">Add New Subscription</h4>
+            <!-- Customer Details Section (Initially Hidden) -->
+            <div class="row collapse" id="customerDetails">
+                <div class="col-lg-12">
+                    <div class="ibox">
+                        <div class="ibox-title">
+                            <h5>Customer Details</h5>
+                            <div class="ibox-tools">
+                                <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#editCustomerModal">
+                                    <i class="fa fa-edit"></i> Edit Details
+                                </button>
+                                <button class="btn btn-white btn-sm" data-toggle="collapse" data-target="#customerDetails">
+                                    <i class="fa fa-times"></i> Close
+                                </button>
+                            </div>
                         </div>
-                        <div class="modal-body">
-                            <form role="form">
-                                <div class="form-group">
-                                    <label>Subscriber</label>
-                                    <select class="form-control" required>
-                                        <option value="">Select Subscriber</option>
-                                        <option>John Smith</option>
-                                        <option>Sarah Johnson</option>
-                                        <option>Michael Brown</option>
-                                    </select>
+                        <div class="ibox-content">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <dl class="row">
+                                        <dt class="col-sm-4">Company Name:</dt>
+                                        <dd class="col-sm-8">Acme Corp</dd>
+
+                                        <dt class="col-sm-4">Corporate Address:</dt>
+                                        <dd class="col-sm-8">123 Business Ave, Suite 100</dd>
+
+                                        <dt class="col-sm-4">GSTIN:</dt>
+                                        <dd class="col-sm-8">29ABCDE1234F1Z5</dd>
+
+                                        <dt class="col-sm-4">Phone:</dt>
+                                        <dd class="col-sm-8">+1 234-567-8900</dd>
+
+                                        <dt class="col-sm-4">Email:</dt>
+                                        <dd class="col-sm-8">contact@acmecorp.com</dd>
+
+                                        <dt class="col-sm-4">Max Users:</dt>
+                                        <dd class="col-sm-8">50</dd>
+                                    </dl>
                                 </div>
-                                <div class="form-group">
-                                    <label>Plan Type</label>
-                                    <select class="form-control" required>
-                                        <option value="">Select Plan</option>
-                                        <option>Basic ($29/month)</option>
-                                        <option>Premium ($99/month)</option>
-                                        <option>Enterprise ($299/month)</option>
-                                    </select>
+                                <div class="col-md-6">
+                                    <dl class="row">
+                                        <dt class="col-sm-4">Service Tenure:</dt>
+                                        <dd class="col-sm-8">2 years</dd>
+
+                                        <dt class="col-sm-4">Subscription Type:</dt>
+                                        <dd class="col-sm-8">Enterprise</dd>
+
+                                        <dt class="col-sm-4">Subscription Date:</dt>
+                                        <dd class="col-sm-8">01/01/2023</dd>
+
+                                        <dt class="col-sm-4">Branch Details:</dt>
+                                        <dd class="col-sm-8">
+                                            <strong>Branch 1:</strong><br>
+                                            456 Branch St, Location A<br>
+                                            Contact: Jane Doe<br>
+                                            Phone: +1 234-567-8901<br>
+                                            Email: branch1@acmecorp.com
+                                        </dd>
+                                    </dl>
                                 </div>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label>Start Date</label>
-                                            <input type="date" class="form-control" required>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label>End Date</label>
-                                            <input type="date" class="form-control" required>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label>Payment Method</label>
-                                    <select class="form-control" required>
-                                        <option value="">Select Payment Method</option>
-                                        <option>Credit Card</option>
-                                        <option>PayPal</option>
-                                        <option>Bank Transfer</option>
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <div class="checkbox">
-                                        <label>
-                                            <input type="checkbox" checked> Enable Auto Renewal
-                                        </label>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label>Notes</label>
-                                    <textarea class="form-control" rows="3"></textarea>
-                                </div>
-                            </form>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-white" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Add Subscription</button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -509,7 +359,7 @@
         </div>
         <div class="footer">
             <div class="float-right">
-            </div>
+                           </div>
             <div>
                 <strong>Copyright</strong> Zeit &copy; Reserved 2025
             </div>

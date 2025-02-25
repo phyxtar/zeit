@@ -10,8 +10,14 @@
     }
     [class*=sidebar-dark-] .sidebar a {
     color: black;
+    }
+    ul.nav.nav-treeview {
+    border-left: 4px solid #fbbc05 !important;
 }
 
+[class*=sidebar-dark] .user-panel {
+    border-bottom: 2px solid #fbbc05 !important;
+}
 .nav-pills .nav-link:not(.active):hover {
     color: #343a40 !important;
 }
@@ -208,7 +214,7 @@
                                                         echo "style='display:none;';";
                                                     }
                                                 } ?>>
-                            <a href="<?= url('add_university_details') ?>" class="nav-link <?php if ($page_no_inside == "3_1") {
+                            <a href="<?= url('employee_list') ?>" class="nav-link <?php if ($page_no_inside == "3_1") {
                                                                                                 echo 'active';
                                                                                             } ?>">
                                 <i class="far fa-circle nav-icon"></i>
@@ -233,7 +239,7 @@
                                                         echo "style='display:none;';";
                                                     }
                                                 } ?>>
-                            <a href="<?= url('course_view') ?>" class="nav-link <?php if ($page_no_inside == "3_2") {
+                            <a href="<?= url('#') ?>" class="nav-link <?php if ($page_no_inside == "3_2") {
                                                                                     echo 'active';
                                                                                 } ?>">
                                 <i class="far fa-circle nav-icon"></i>
@@ -258,7 +264,7 @@
                                                         echo "style='display:none;';";
                                                     }
                                                 } ?>>
-                            <a href="<?= url('mandatory_documents') ?>" class="nav-link <?php if ($page_no_inside == "3_3") {
+                            <a href="<?= url('#') ?>" class="nav-link <?php if ($page_no_inside == "3_3") {
                                                                                             echo 'active';
                                                                                         } ?>">
                                 <i class="far fa-circle nav-icon"></i>
@@ -283,7 +289,7 @@
                                                         echo "style='display:none;';";
                                                     }
                                                 } ?>>
-                            <a href="<?= url('mandatory_documents') ?>" class="nav-link <?php if ($page_no_inside == "3_3") {
+                            <a href="<?= url('#') ?>" class="nav-link <?php if ($page_no_inside == "3_3") {
                                                                                             echo 'active';
                                                                                         } ?>">
                                 <i class="far fa-circle nav-icon"></i>
@@ -308,7 +314,7 @@
                                                         echo "style='display:none;';";
                                                     }
                                                 } ?>>
-                            <a href="<?= url('mandatory_documents') ?>" class="nav-link <?php if ($page_no_inside == "3_3") {
+                            <a href="<?= url('#') ?>" class="nav-link <?php if ($page_no_inside == "3_3") {
                                                                                             echo 'active';
                                                                                         } ?>">
                                 <i class="far fa-circle nav-icon"></i>
@@ -358,7 +364,7 @@
                                                         echo "style='display:none;';";
                                                     }
                                                 } ?>>
-                            <a href="<?= url('prospectus_view') ?>" class="nav-link <?php if ($page_no_inside == "4_1") {
+                            <a href="<?= url('customer') ?>" class="nav-link <?php if ($page_no_inside == "4_1") {
                                                                                         echo 'active';
                                                                                     } ?>">
                                 <i class="far fa-circle nav-icon"></i>
