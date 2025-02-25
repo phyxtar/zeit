@@ -134,7 +134,7 @@
                                                         echo "style='display:none;';";
                                                     }
                                                 } ?>>
-                            <a href="<?= url('loan_applications.php') ?>" class="nav-link <?php if ($page_no_inside == "2_3") {
+                            <a href="<?= url('company-info.php') ?>" class="nav-link <?php if ($page_no_inside == "2_3") {
                                                                                                 echo 'active';
                                                                                             } ?>">
                                 <i class="far fa-circle nav-icon"></i>
@@ -159,7 +159,7 @@
                                                         echo "style='display:none;';";
                                                     }
                                                 } ?>>
-                            <a href="<?= url('loan_applications.php') ?>" class="nav-link <?php if ($page_no_inside == "2_3") {
+                            <a href="<?= url('subscription.php') ?>" class="nav-link <?php if ($page_no_inside == "2_3") {
                                                                                                 echo 'active';
                                                                                             } ?>">
                                 <i class="far fa-circle nav-icon"></i>

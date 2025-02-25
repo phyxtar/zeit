@@ -69,9 +69,9 @@ include_once "include/authentication.php";
           
             <div class="row">
                 <div class="col-lg-12">
+                <div class="card px-4 py-2">
                     <div class="ibox">
-                        <div class="ibox-title">
-                        
+                        <div class="ibox-title mb-3">
                             <div class="ibox-tools">
                                 <div class="btn-group">
                                     <button type="button" class="btn btn-white btn-sm dropdown-toggle" data-toggle="dropdown">
@@ -87,7 +87,7 @@ include_once "include/authentication.php";
                         </div>
                         <div class="ibox-content">
                             <!-- Summary Stats -->
-                            <div class="row mb-4">
+                            <div class="row mb-5">
                                 <?php
                                 // Get total logs count
                                 $total_logs = $con->query("SELECT COUNT(*) as count FROM tbl_admin")->fetch_assoc()['count'];
@@ -103,7 +103,7 @@ include_once "include/authentication.php";
                                 ?>
                                 <div class="col-md-3">
                                     <div class="widget style1" style="background-color: #1ab394; color: white; border-radius: 10px;">
-                                        <div class="row p-3">
+                                        <div class="row p-4">
                                             <div class="col-4 d-flex align-items-center">
                                                 <i class="fas fa-database fa-3x"></i>
                                             </div>
@@ -116,7 +116,7 @@ include_once "include/authentication.php";
                                 </div>
                                 <div class="col-md-3">
                                     <div class="widget style1" style="background-color: #23c6c8; color: white; border-radius: 10px;">
-                                        <div class="row p-3">
+                                        <div class="row p-4">
                                             <div class="col-4 d-flex align-items-center">
                                                 <i class="fas fa-users fa-3x"></i>
                                             </div>
@@ -129,7 +129,7 @@ include_once "include/authentication.php";
                                 </div>
                                 <div class="col-md-3">
                                     <div class="widget style1" style="background-color: #f8ac59; color: white; border-radius: 10px;">
-                                        <div class="row p-3">
+                                        <div class="row p-4">
                                             <div class="col-4 d-flex align-items-center">
                                                 <i class="fas fa-exclamation-triangle fa-3x"></i>
                                             </div>
@@ -142,7 +142,7 @@ include_once "include/authentication.php";
                                 </div>
                                 <div class="col-md-3">
                                     <div class="widget style1" style="background-color: #FF0004; border-radius: 10px; color: white;">
-                                        <div class="row p-3">
+                                        <div class="row p-4">
                                             <div class="col-4 d-flex align-items-center">
                                                 <i class="fas fa-shield-alt fa-3x"></i>
                                             </div>
@@ -155,10 +155,10 @@ include_once "include/authentication.php";
                                 </div>
                             </div>
 
-                            <div class="row m-b-sm">
+                            <div class="row mb-4">
                                 <div class="col-md-3">
                                     <div class="form-group">
-                                        <label>Event Type</label>
+                                        <label class="mb-2">Event Type</label>
                                         <select class="form-control">
                                             <option>All Events</option>
                                             <option>Login</option>
@@ -173,7 +173,7 @@ include_once "include/authentication.php";
                                 </div>
                                 <div class="col-md-3">
                                     <div class="form-group">
-                                        <label>User</label>
+                                        <label class="mb-2">User</label>
                                         <select class="form-control">
                                             <option>All Users</option>
                                             <?php
@@ -188,17 +188,17 @@ include_once "include/authentication.php";
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <label>Date Range</label>
+                                        <label class="mb-2">Date Range</label>
                                         <div class="input-daterange input-group">
                                             <input type="date" class="form-control" name="start">
-                                            <span class="input-group-addon">to</span>
+                                            <span class="input-group-addon px-2 d-flex align-items-center">to</span>
                                             <input type="date" class="form-control" name="end">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-md-2">
                                     <div class="form-group">
-                                        <label>&nbsp;</label>
+                                        <label class="mb-2">&nbsp;</label>
                                         <button class="btn btn-block" style="background-color: #FF0004; color: white;">Search Logs</button>
                                     </div>
                                 </div>
@@ -208,14 +208,14 @@ include_once "include/authentication.php";
                                 <table class="table table-striped">
                                     <thead>
                                         <tr>
-                                            <th>Timestamp</th>
-                                            <th>Event Type</th>
-                                            <th>User</th>
-                                            <th>IP Address</th>
-                                            <th>Module</th>
-                                            <th>Action</th>
-                                            <th>Details</th>
-                                            <th>Status</th>
+                                            <th class="py-3">Timestamp</th>
+                                            <th class="py-3">Event Type</th>
+                                            <th class="py-3">User</th>
+                                            <th class="py-3">IP Address</th>
+                                            <th class="py-3">Module</th>
+                                            <th class="py-3">Action</th>
+                                            <th class="py-3">Details</th>
+                                            <th class="py-3">Status</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -253,14 +253,14 @@ include_once "include/authentication.php";
                                             }
                                             
                                             echo "<tr>";
-                                            echo "<td>" . $row['join_date'] . "</td>";
-                                            echo "<td><span class='badge' style='background-color: " . $event_type_color . "; color: white;'>" . ucfirst($row['admin_type']) . "</span></td>";
-                                            echo "<td>" . $row['admin_email'] . "</td>";
-                                            echo "<td>" . $_SERVER['REMOTE_ADDR'] . "</td>";
-                                            echo "<td>User Management</td>";
-                                            echo "<td>User Activity</td>";
-                                            echo "<td>" . $row['admin_name'] . " - " . $row['department'] . "</td>";
-                                            echo "<td><span class='badge badge-" . $status_class . "'>" . $status_text . "</span></td>";
+                                            echo "<td class='py-3'>" . $row['join_date'] . "</td>";
+                                            echo "<td class='py-3'><span class='badge' style='background-color: " . $event_type_color . "; color: white;'>" . ucfirst($row['admin_type']) . "</span></td>";
+                                            echo "<td class='py-3'>" . $row['admin_email'] . "</td>";
+                                            echo "<td class='py-3'>" . $_SERVER['REMOTE_ADDR'] . "</td>";
+                                            echo "<td class='py-3'>User Management</td>";
+                                            echo "<td class='py-3'>User Activity</td>";
+                                            echo "<td class='py-3'>" . $row['admin_name'] . " - " . $row['department'] . "</td>";
+                                            echo "<td class='py-3'><span class='badge badge-" . $status_class . "'>" . $status_text . "</span></td>";
                                             echo "</tr>";
                                         }
                                         ?>
@@ -268,7 +268,7 @@ include_once "include/authentication.php";
                                 </table>
                             </div>
 
-                            <div class="row">
+                            <div class="row mt-4">
                                 <div class="col-sm-12">
                                     <div class="text-right">
                                         <ul class="pagination">
@@ -283,6 +283,7 @@ include_once "include/authentication.php";
                             </div>
                         </div>
                     </div>
+                </div>
                 </div>
             </div>
             <!-- /.content -->

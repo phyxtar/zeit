@@ -69,9 +69,9 @@
                     <a href="#"><i class="fa fa-users"></i> <span class="nav-label">Customer</span> <span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         <li><a href="customer-list.html">Customer List</a></li>
-                       
+              
                         <li><a href="support-tickets.html">Support Tickets</a></li>
-                       
+                      
                     </ul>
                 </li>
             
@@ -237,8 +237,11 @@
                 <div class="col-lg-12">
                     <div class="ibox">
                         <div class="ibox-title">
-                            <h5>Audit Logs</h5>
+                            <h5>Manage Subscriptions</h5>
                             <div class="ibox-tools">
+                                <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#addSubscriptionModal">
+                                    <i class="fa fa-plus"></i> Add Subscription
+                                </button>
                                 <div class="btn-group">
                                     <button type="button" class="btn btn-white btn-sm dropdown-toggle" data-toggle="dropdown">
                                         Export <span class="caret"></span>
@@ -258,11 +261,11 @@
                                     <div class="widget style1 navy-bg">
                                         <div class="row">
                                             <div class="col-4">
-                                                <i class="fa fa-database fa-3x"></i>
+                                                <i class="fa fa-users fa-3x"></i>
                                             </div>
                                             <div class="col-8 text-right">
-                                                <span>Total Logs</span>
-                                                <h2 class="font-bold">2,342</h2>
+                                                <span>Total Subscribers</span>
+                                                <h2 class="font-bold">856</h2>
                                             </div>
                                         </div>
                                     </div>
@@ -271,11 +274,11 @@
                                     <div class="widget style1 lazur-bg">
                                         <div class="row">
                                             <div class="col-4">
-                                                <i class="fa fa-user fa-3x"></i>
+                                                <i class="fa fa-credit-card fa-3x"></i>
                                             </div>
                                             <div class="col-8 text-right">
-                                                <span>Unique Users</span>
-                                                <h2 class="font-bold">147</h2>
+                                                <span>Monthly Revenue</span>
+                                                <h2 class="font-bold">$12,450</h2>
                                             </div>
                                         </div>
                                     </div>
@@ -284,11 +287,11 @@
                                     <div class="widget style1 yellow-bg">
                                         <div class="row">
                                             <div class="col-4">
-                                                <i class="fa fa-warning fa-3x"></i>
+                                                <i class="fa fa-refresh fa-3x"></i>
                                             </div>
                                             <div class="col-8 text-right">
-                                                <span>Failed Actions</span>
-                                                <h2 class="font-bold">23</h2>
+                                                <span>Renewals Due</span>
+                                                <h2 class="font-bold">28</h2>
                                             </div>
                                         </div>
                                     </div>
@@ -297,11 +300,11 @@
                                     <div class="widget style1 red-bg">
                                         <div class="row">
                                             <div class="col-4">
-                                                <i class="fa fa-shield fa-3x"></i>
+                                                <i class="fa fa-times-circle fa-3x"></i>
                                             </div>
                                             <div class="col-8 text-right">
-                                                <span>Security Events</span>
-                                                <h2 class="font-bold">45</h2>
+                                                <span>Expired</span>
+                                                <h2 class="font-bold">15</h2>
                                             </div>
                                         </div>
                                     </div>
@@ -311,26 +314,24 @@
                             <div class="row m-b-sm">
                                 <div class="col-md-3">
                                     <div class="form-group">
-                                        <label>Event Type</label>
+                                        <label>Plan Type</label>
                                         <select class="form-control">
-                                            <option>All Events</option>
-                                            <option>Login</option>
-                                            <option>Logout</option>
-                                            <option>Create</option>
-                                            <option>Update</option>
-                                            <option>Delete</option>
-                                            <option>Password Change</option>
-                                            <option>Permission Change</option>
+                                            <option>All Plans</option>
+                                            <option>Basic</option>
+                                            <option>Premium</option>
+                                            <option>Enterprise</option>
                                         </select>
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="form-group">
-                                        <label>User</label>
+                                        <label>Status</label>
                                         <select class="form-control">
-                                            <option>All Users</option>
-                                            <option>Admin Users</option>
-                                            <option>Regular Users</option>
+                                            <option>All Status</option>
+                                            <option>Active</option>
+                                            <option>Pending</option>
+                                            <option>Expired</option>
+                                            <option>Cancelled</option>
                                         </select>
                                     </div>
                                 </div>
@@ -347,7 +348,7 @@
                                 <div class="col-md-2">
                                     <div class="form-group">
                                         <label>&nbsp;</label>
-                                        <button class="btn btn-primary btn-block">Search Logs</button>
+                                        <button class="btn btn-primary btn-block">Search</button>
                                     </div>
                                 </div>
                             </div>
@@ -356,66 +357,61 @@
                                 <table class="table table-striped">
                                     <thead>
                                         <tr>
-                                            <th>Timestamp</th>
-                                            <th>Event Type</th>
-                                            <th>User</th>
-                                            <th>IP Address</th>
-                                            <th>Module</th>
-                                            <th>Action</th>
-                                            <th>Details</th>
+                                            <th>Subscriber</th>
+                                            <th>Plan</th>
+                                            <th>Start Date</th>
+                                            <th>End Date</th>
+                                            <th>Amount</th>
                                             <th>Status</th>
+                                            <th>Auto Renew</th>
+                                            <th>Actions</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td>2023-06-15 14:30:25</td>
-                                            <td><span class="label label-primary">Login</span></td>
-                                            <td>admin@example.com</td>
-                                            <td>192.168.1.100</td>
-                                            <td>Authentication</td>
-                                            <td>User Login</td>
-                                            <td>Successful login attempt</td>
-                                            <td><span class="label label-success">Success</span></td>
+                                            <td>John Smith</td>
+                                            <td>Premium</td>
+                                            <td>2023-01-15</td>
+                                            <td>2024-01-14</td>
+                                            <td>$99/month</td>
+                                            <td><span class="label label-primary">Active</span></td>
+                                            <td><span class="label label-success">Yes</span></td>
+                                            <td>
+                                                <div class="btn-group">
+                                                    <button class="btn-white btn btn-xs">Edit</button>
+                                                    <button class="btn-white btn btn-xs">Cancel</button>
+                                                </div>
+                                            </td>
                                         </tr>
                                         <tr>
-                                            <td>2023-06-15 14:25:12</td>
-                                            <td><span class="label label-warning">Update</span></td>
-                                            <td>john.doe@example.com</td>
-                                            <td>192.168.1.101</td>
-                                            <td>User Management</td>
-                                            <td>Profile Update</td>
-                                            <td>Updated user profile information</td>
-                                            <td><span class="label label-success">Success</span></td>
+                                            <td>Sarah Johnson</td>
+                                            <td>Basic</td>
+                                            <td>2023-03-20</td>
+                                            <td>2024-03-19</td>
+                                            <td>$29/month</td>
+                                            <td><span class="label label-primary">Active</span></td>
+                                            <td><span class="label label-success">Yes</span></td>
+                                            <td>
+                                                <div class="btn-group">
+                                                    <button class="btn-white btn btn-xs">Edit</button>
+                                                    <button class="btn-white btn btn-xs">Cancel</button>
+                                                </div>
+                                            </td>
                                         </tr>
                                         <tr>
-                                            <td>2023-06-15 14:20:45</td>
-                                            <td><span class="label label-danger">Delete</span></td>
-                                            <td>admin@example.com</td>
-                                            <td>192.168.1.100</td>
-                                            <td>Document Management</td>
-                                            <td>Delete File</td>
-                                            <td>Deleted file: report.pdf</td>
-                                            <td><span class="label label-success">Success</span></td>
-                                        </tr>
-                                        <tr>
-                                            <td>2023-06-15 14:15:30</td>
-                                            <td><span class="label label-info">Create</span></td>
-                                            <td>jane.smith@example.com</td>
-                                            <td>192.168.1.102</td>
-                                            <td>Project Management</td>
-                                            <td>Create Project</td>
-                                            <td>Created new project: Website Redesign</td>
-                                            <td><span class="label label-success">Success</span></td>
-                                        </tr>
-                                        <tr>
-                                            <td>2023-06-15 14:10:15</td>
-                                            <td><span class="label label-danger">Failed Login</span></td>
-                                            <td>unknown@example.com</td>
-                                            <td>192.168.1.103</td>
-                                            <td>Authentication</td>
-                                            <td>Login Attempt</td>
-                                            <td>Failed login attempt - Invalid credentials</td>
-                                            <td><span class="label label-danger">Failed</span></td>
+                                            <td>Michael Brown</td>
+                                            <td>Enterprise</td>
+                                            <td>2023-05-01</td>
+                                            <td>2023-06-15</td>
+                                            <td>$299/month</td>
+                                            <td><span class="label label-danger">Expired</span></td>
+                                            <td><span class="label label-danger">No</span></td>
+                                            <td>
+                                                <div class="btn-group">
+                                                    <button class="btn-white btn btn-xs">Renew</button>
+                                                    <button class="btn-white btn btn-xs">Delete</button>
+                                                </div>
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -434,6 +430,78 @@
                                     </div>
                                 </div>
                             </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Add Subscription Modal -->
+            <div class="modal inmodal" id="addSubscriptionModal" tabindex="-1" role="dialog" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content animated bounceInRight">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title">Add New Subscription</h4>
+                        </div>
+                        <div class="modal-body">
+                            <form role="form">
+                                <div class="form-group">
+                                    <label>Subscriber</label>
+                                    <select class="form-control" required>
+                                        <option value="">Select Subscriber</option>
+                                        <option>John Smith</option>
+                                        <option>Sarah Johnson</option>
+                                        <option>Michael Brown</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Plan Type</label>
+                                    <select class="form-control" required>
+                                        <option value="">Select Plan</option>
+                                        <option>Basic ($29/month)</option>
+                                        <option>Premium ($99/month)</option>
+                                        <option>Enterprise ($299/month)</option>
+                                    </select>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Start Date</label>
+                                            <input type="date" class="form-control" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>End Date</label>
+                                            <input type="date" class="form-control" required>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label>Payment Method</label>
+                                    <select class="form-control" required>
+                                        <option value="">Select Payment Method</option>
+                                        <option>Credit Card</option>
+                                        <option>PayPal</option>
+                                        <option>Bank Transfer</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" checked> Enable Auto Renewal
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label>Notes</label>
+                                    <textarea class="form-control" rows="3"></textarea>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-white" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary">Add Subscription</button>
                         </div>
                     </div>
                 </div>
