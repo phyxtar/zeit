@@ -412,7 +412,7 @@
                         </p>
                     </a>
                 </li>
-                <li class="nav-item has-treeview" id="menu1">
+                <!-- <li class="nav-item has-treeview" id="menu1">
                     <a href="<?= url('dashboard') ?>" class="nav-link <?php if ($page_no == "1") {
                                                                             
                                                                         } ?>">
@@ -421,7 +421,7 @@
                             Settings
                         </p>
                     </a>
-                </li>
+                </li> -->
           
 
                 <!-- <li class="nav-item has-treeview" <?php if (isset($autority)) {
