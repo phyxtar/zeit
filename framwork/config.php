@@ -35,10 +35,10 @@ if ($_SERVER['HTTP_HOST'] == 'localhost') {
 } else {
     // for server connection
     $hostname = "localhost";
-    $username = "usernsucms_cms";
-    $password = "Nsuraja83013@#";
+    $username = "dev03_zeit";
+    $password = "g&d!KBaM]^x!";
     // $password = "wpNnnOv5";
-    $database = "nsucms_cms";
+    $database = "dev03_zeit";
 }
 
 /*   you can use the connection anywhere in your project does not need to

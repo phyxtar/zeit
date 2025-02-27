@@ -27,7 +27,7 @@
             if($_SERVER['HTTP_HOST']=='localhost'){
             $this->con = new mysqli($this->hostName, $this->userName, $this->password, $this->dbName);
             }else{
-                $this->con = new mysqli("localhost", "usernsucms_cms", "Nsuraja83013@#", "nsucms_cms");
+                $this->con = new mysqli("localhost", "dev03_zeit", "g&d!KBaM]^x!", "dev03_zeit");
             }
             // Check connection
             if ($this->con->connect_error) {
