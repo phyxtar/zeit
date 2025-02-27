@@ -403,7 +403,7 @@
                     </ul>
                 </li>
                 <li class="nav-item has-treeview" id="menu1">
-                    <a href="<?= url('dashboard') ?>" class="nav-link <?php if ($page_no == "1") {
+                    <a href="<?= url('reports') ?>" class="nav-link <?php if ($page_no == "9") {
                                                                             
                                                                         } ?>">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
@@ -424,7 +424,7 @@
                 </li>
           
 
-                <li class="nav-item has-treeview" <?php if (isset($autority)) {
+                <!-- <li class="nav-item has-treeview" <?php if (isset($autority)) {
                                                         $page_no_temp = 10;
                                                         if (isset($allAutority->$page_no_temp)) {
                                                             if ($allAutority->$page_no_temp == "") {
@@ -442,7 +442,7 @@
                             Trash
                         </p>
                     </a>
-                </li>
+                </li> -->
 
 
 

@@ -69,8 +69,9 @@
                     <a href="#"><i class="fa fa-users"></i> <span class="nav-label">Customer</span> <span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         <li><a href="customer-list.html">Customer List</a></li>
+              
                         <li><a href="support-tickets.html">Support Tickets</a></li>
-                       
+                      
                     </ul>
                 </li>
             
@@ -223,7 +224,7 @@
                         </li>
                         
                         <li class="breadcrumb-item active">
-                            <strong>Payroll</strong>
+                            <strong>Reports</strong>
                         </li>
                     </ol>
                 </div>
@@ -233,128 +234,172 @@
             </div>
         <div class="wrapper wrapper-content animated fadeInRight">
             <div class="row">
-                <div class="col-lg-12">
-                    <div class="ibox">
-                        <div class="ibox-title">
-                            <h5>Customer List</h5>
-                            <div class="ibox-tools">
-                                <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#addCustomerModal">
-                                    <i class="fa fa-plus"></i> Add New Customer
+              <div class="col-lg-12">
+                <div class="ibox">
+                    <div class="ibox-title">
+                        <h5>Advanced Report Generation</h5>
+                        <div class="ibox-tools">
+                            <div class="btn-group">
+                                <button class="btn btn-primary btn-xs" id="generateReport">
+                                    <i class="fa fa-file-pdf-o"></i> Generate Report
                                 </button>
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-white btn-sm dropdown-toggle" data-toggle="dropdown">
-                                        Export <span class="caret"></span>
-                                    </button>
-                                    <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="#"><i class="fa fa-file-pdf-o"></i> Export as PDF</a></li>
-                                        <li><a class="dropdown-item" href="#"><i class="fa fa-print"></i> Print List</a></li>
+                                <button class="btn btn-success btn-xs">
+                                    <i class="fa fa-envelope"></i> Email Report
+                                </button>
+                                <button class="btn btn-info btn-xs">
+                                    <i class="fa fa-clock-o"></i> Schedule Report
+                                </button>
+                                <button class="btn btn-warning btn-xs">
+                                    <i class="fa fa-save"></i> Save Template
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ibox-content">
+                        <div class="row m-b-sm">
+                            <div class="col-md-3">
+                                <select class="form-control" id="reportType">
+                                    <option value="">Select Report Type</option>
+                                    <option value="attendance">Attendance Report</option>
+                                    <option value="leave">Leave Report</option>
+                                    <option value="payroll">Payroll Report</option>
+                                    <option value="employee">Employee Report</option>
+                                    <option value="performance">Performance Report</option>
+                                    <option value="training">Training Report</option>
+                                    <option value="recruitment">Recruitment Report</option>
+                                    <option value="custom">Custom Report</option>
+                                </select>
+                            </div>
+                            <div class="col-md-3">
+                                <select class="form-control" id="reportFormat">
+                                    <option value="pdf">PDF</option>
+                                    <option value="excel">Excel</option>
+                                    <option value="csv">CSV</option>
+                                    <option value="word">Word</option>
+                                    <option value="html">HTML</option>
+                                    <option value="json">JSON</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="input-daterange input-group">
+                                    <input type="date" class="form-control" name="start" />
+                                    <span class="input-group-addon">to</span>
+                                    <input type="date" class="form-control" name="end" />
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <button class="btn btn-primary btn-block">Apply Filters</button>
+                            </div>
+                        </div>
+
+                        <div class="row m-b-sm">
+                            <div class="col-md-3">
+                                <select class="form-control" id="department">
+                                    <option value="">Select Department</option>
+                                    <option value="hr">Human Resources</option>
+                                    <option value="it">Information Technology</option>
+                                    <option value="finance">Finance</option>
+                                    <option value="sales">Sales</option>
+                                </select>
+                            </div>
+                            <div class="col-md-3">
+                                <select class="form-control" id="employeeStatus">
+                                    <option value="">Employee Status</option>
+                                    <option value="active">Active</option>
+                                    <option value="inactive">Inactive</option>
+                                    <option value="onLeave">On Leave</option>
+                                </select>
+                            </div>
+                            <div class="col-md-3">
+                                <select class="form-control" id="groupBy">
+                                    <option value="">Group By</option>
+                                    <option value="department">Department</option>
+                                    <option value="designation">Designation</option>
+                                    <option value="location">Location</option>
+                                </select>
+                            </div>
+                            <div class="col-md-3">
+                                <select class="form-control" id="sortBy">
+                                    <option value="">Sort By</option>
+                                    <option value="name">Name</option>
+                                    <option value="date">Date</option>
+                                    <option value="department">Department</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="table-responsive">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th><input type="checkbox" class="i-checks"> Select All</th>
+                                        <th>Report Name</th>
+                                        <th>Generated Date</th>
+                                        <th>Type</th>
+                                        <th>Format</th>
+                                        <th>Generated By</th>
+                                        <th>Status</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><input type="checkbox" class="i-checks"></td>
+                                        <td>Monthly Attendance Report</td>
+                                        <td>2023-10-01</td>
+                                        <td><span class="label label-primary">Attendance</span></td>
+                                        <td>PDF</td>
+                                        <td>Admin User</td>
+                                        <td><span class="badge badge-success">Completed</span></td>
+                                        <td>
+                                            <div class="btn-group">
+                                                <button class="btn btn-xs btn-primary" data-toggle="tooltip" title="Download"><i class="fa fa-download"></i></button>
+                                                <button class="btn btn-xs btn-info" data-toggle="tooltip" title="View"><i class="fa fa-eye"></i></button>
+                                                <button class="btn btn-xs btn-warning" data-toggle="tooltip" title="Edit"><i class="fa fa-edit"></i></button>
+                                                <button class="btn btn-xs btn-success" data-toggle="tooltip" title="Share"><i class="fa fa-share-alt"></i></button>
+                                                <button class="btn btn-xs btn-danger" data-toggle="tooltip" title="Delete"><i class="fa fa-trash"></i></button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><input type="checkbox" class="i-checks"></td>
+                                        <td>Q3 Leave Summary</td>
+                                        <td>2023-09-30</td>
+                                        <td><span class="label label-info">Leave</span></td>
+                                        <td>Excel</td>
+                                        <td>HR Manager</td>
+                                        <td><span class="badge badge-warning">Processing</span></td>
+                                        <td>
+                                            <div class="btn-group">
+                                                <button class="btn btn-xs btn-primary" data-toggle="tooltip" title="Download"><i class="fa fa-download"></i></button>
+                                                <button class="btn btn-xs btn-info" data-toggle="tooltip" title="View"><i class="fa fa-eye"></i></button>
+                                                <button class="btn btn-xs btn-warning" data-toggle="tooltip" title="Edit"><i class="fa fa-edit"></i></button>
+                                                <button class="btn btn-xs btn-success" data-toggle="tooltip" title="Share"><i class="fa fa-share-alt"></i></button>
+                                                <button class="btn btn-xs btn-danger" data-toggle="tooltip" title="Delete"><i class="fa fa-trash"></i></button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="dataTables_info">Showing 1 to 2 of 2 entries</div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="dataTables_paginate paging_simple_numbers">
+                                    <ul class="pagination">
+                                        <li class="paginate_button previous disabled"><a href="#">Previous</a></li>
+                                        <li class="paginate_button active"><a href="#">1</a></li>
+                                        <li class="paginate_button next disabled"><a href="#">Next</a></li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
-                        <div class="ibox-content">
-                            <div class="table-responsive">
-                                <table class="table table-hover">
-                                    <thead>
-                                        <tr>
-                                            <th>Customer ID</th>
-                                            <th>Company Name</th>
-                                            <th>Contact Person</th>
-                                            <th>Email</th>
-                                            <th>Phone</th>
-                                            <th>Service Tenure</th>
-                                            <th>Subscription Type</th>
-                                            <th>Status</th>
-                                            <th>Actions</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>CUST001</td>
-                                            <td>Acme Corp</td>
-                                            <td>John Smith</td>
-                                            <td>john@acmecorp.com</td>
-                                            <td>+1 234-567-8900</td>
-                                            <td>2 years</td>
-                                            <td><span class="badge badge-info">Enterprise</span></td>
-                                            <td><span class="badge badge-primary">Active</span></td>
-                                            <td>
-                                                <button class="btn btn-white btn-sm" data-toggle="collapse" data-target="#customerDetails">
-                                                    <i class="fa fa-eye"></i> View Details
-                                                </button>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
                     </div>
                 </div>
-            </div>
-
-            <!-- Customer Details Section (Initially Hidden) -->
-            <div class="row collapse" id="customerDetails">
-                <div class="col-lg-12">
-                    <div class="ibox">
-                        <div class="ibox-title">
-                            <h5>Customer Details</h5>
-                            <div class="ibox-tools">
-                                <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#editCustomerModal">
-                                    <i class="fa fa-edit"></i> Edit Details
-                                </button>
-                                <button class="btn btn-white btn-sm" data-toggle="collapse" data-target="#customerDetails">
-                                    <i class="fa fa-times"></i> Close
-                                </button>
-                            </div>
-                        </div>
-                        <div class="ibox-content">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <dl class="row">
-                                        <dt class="col-sm-4">Company Name:</dt>
-                                        <dd class="col-sm-8">Acme Corp</dd>
-
-                                        <dt class="col-sm-4">Corporate Address:</dt>
-                                        <dd class="col-sm-8">123 Business Ave, Suite 100</dd>
-
-                                        <dt class="col-sm-4">GSTIN:</dt>
-                                        <dd class="col-sm-8">29ABCDE1234F1Z5</dd>
-
-                                        <dt class="col-sm-4">Phone:</dt>
-                                        <dd class="col-sm-8">+1 234-567-8900</dd>
-
-                                        <dt class="col-sm-4">Email:</dt>
-                                        <dd class="col-sm-8">contact@acmecorp.com</dd>
-
-                                        <dt class="col-sm-4">Max Users:</dt>
-                                        <dd class="col-sm-8">50</dd>
-                                    </dl>
-                                </div>
-                                <div class="col-md-6">
-                                    <dl class="row">
-                                        <dt class="col-sm-4">Service Tenure:</dt>
-                                        <dd class="col-sm-8">2 years</dd>
-
-                                        <dt class="col-sm-4">Subscription Type:</dt>
-                                        <dd class="col-sm-8">Enterprise</dd>
-
-                                        <dt class="col-sm-4">Subscription Date:</dt>
-                                        <dd class="col-sm-8">01/01/2023</dd>
-
-                                        <dt class="col-sm-4">Branch Details:</dt>
-                                        <dd class="col-sm-8">
-                                            <strong>Branch 1:</strong><br>
-                                            456 Branch St, Location A<br>
-                                            Contact: Jane Doe<br>
-                                            Phone: +1 234-567-8901<br>
-                                            Email: branch1@acmecorp.com
-                                        </dd>
-                                    </dl>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+              </div>
             </div>
         </div>
         <div class="footer">
